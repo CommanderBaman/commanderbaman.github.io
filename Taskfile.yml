@@ -23,11 +23,10 @@ tasks:
               msg: mdsf should be installed for formatting markdown files
         cmds:
             - mdslw -m check .
-            - mdsf verify .
+            - mdsf verify --log-level error .
 
     format:
         desc: Format the project
-        silent: true
         aliases:
             - fmt
         preconditions:
@@ -37,7 +36,7 @@ tasks:
               msg: mdsf should be installed for formatting markdown files
         cmds:
             - mdslw .
-            - mdsf format .
+            - mdsf format --log-level error .
 
     init:githook:
         desc: Initialize the githooks present
