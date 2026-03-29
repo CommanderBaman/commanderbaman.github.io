@@ -14,6 +14,19 @@ tasks:
         cmds:
             - zola check
 
+    build:
+        desc: Build the website
+        preconditions:
+            - sh: zola --version
+              msg: zola must be present to build project
+        cmds:
+            - zola build
+
+    clean:
+        desc: Remove generated files
+        cmds:
+            - rm -rf public
+
     format:check:
         desc: Check if project is formatted properly
         preconditions:
