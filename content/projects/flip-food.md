@@ -1,20 +1,30 @@
 ---
 title: Flip Food
 description: Online marketplace using django and bootstrap
-cover-image: /images/projects/flip-food/cover.jpg
+weight: 9998
+extra:
+  local_image: /images/projects/flip-food/cover.jpg
+taxonomies:
+  tags:
+    - web-development
+    - django
 ---
 
-Flip food is a simple Django application built to simulate a complete buying and selling market platform.
+Flip food is a simple Django application built to simulate a complete buying and
+selling market platform.
 
-By entering some required information like name, address, profile photo etc. any one can become a user. Facilities are only activated after they verify their account. The current verification method is clicking on a link sent on their emails.
+By entering some required information like name, address, profile photo etc. any
+one can become a user.
+Facilities are only activated after they verify their account.
+The current verification method is clicking on a link sent on their emails.
 
 <figure class="image-2-container">
   <div class="image-section">
     <img class="image-2" src="/images/projects/flip-food/login-page.jpg" alt="Login page of Flip Food application">
-    <img class="image-2" src="/images/projects/flip-food/registeration-page.jpg" alt="Registeration page of Flip Food application"/>
+    <img class="image-2" src="/images/projects/flip-food/registration-page.jpg" alt="Registration page of Flip Food application"/>
   </div>
   <figcaption class="image-2-caption">
-    Login and Registeration pages for the user
+    Login and Registration pages for the user
   </figcaption>
 </figure>
 
@@ -40,6 +50,8 @@ Cart feature is enabled so that users can buy multiple objects at the same time.
 
 Bootstrap was used to design a responsive User Interface.
 
-A demo version of Paypal is also integrated to facilitate demo payments (as this is not a real market, for now).
+A demo version of Paypal is also integrated to facilitate demo payments (as this
+is not a real market, for now).
 
-You can find the code on [github](https://github.com/CommanderBaman/Flip-Food-Django-app)
+You can find the code on
+[github](https://github.com/CommanderBaman/Flip-Food-Django-app)

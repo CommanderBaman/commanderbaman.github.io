@@ -1,0 +1,81 @@
+base_url = "https://commanderbaman.github.io"
+theme = "tabi"
+
+title = "@CommanderBaman"
+description = "I am just a developer, sitting in front of his computer, praying to the AI gods that the piece of code runs, and runs well..."
+author = "CommanderBaman"
+
+generate_feeds = true
+minify_html = true
+compile_sass = true
+build_search_index = true
+
+default_language = "en"
+
+taxonomies = [{ name = "tags", feed = true }]
+
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+index_format = "elasticlunr_json"
+
+
+[markdown]
+bottom_footnotes = true
+smart_punctuation = true
+
+[markdown.highlighting]
+theme = "catppuccin-frappe"
+style = "class"
+
+[link_checker]
+skip_prefixes = [
+  "https://www.electronics-tutorials.ws/opamp/op-amp-comparator.html",
+]
+
+[extra]
+resume_link = "documents/resume/2025-11.pdf"
+menu = [
+  { name = "/about", url = "about", trailing_slash = false },
+  { name = "/blog", url = "blog", trailing_slash = true },
+  { name = "/projects", url = "projects", trailing_slash = true },
+  { name = "#tags", url = "tags", trailing_slash = true },
+]
+socials = [
+  { name = "github", url = "https://github.com/CommanderBaman", icon = "github" },
+  { name = "facebook", url = "https://www.facebook.com/shubham.ojha.90", icon = "facebook" },
+  { name = "instagram", url = "https://www.instagram.com/commander.baman", icon = "instagram" },
+  { name = "linkedin", url = "https://www.linkedin.com/in/shubham-ojha-80b52a1a9", icon = "linkedin" },
+  { name = "email", url = "mailto:shubhamojha18@gmail.com", icon = "email" },
+]
+
+index_format = "elasticlunr_json"
+override_serif_with_sans = false
+
+default_theme = ""
+theme_switcher = true
+
+# Skin available: blue, lavender, mint, red, sakura, teal, monochrome, lowcontrast_orange, 
+# lowcontrast_peach, lowcontrast_pink, indigo_ingot, evangelion
+skin = "lowcontrast_orange"
+
+stylesheets = []
+
+
+remote_repository_url = "https://github.com/CommanderBaman/commanderbaman.github.io"
+remote_repository_git_platform = "auto"
+remote_repository_branch = "main"
+show_remote_changes = true
+show_remote_source = true
+
+# for coding
+copy_button = true
+code_block_name_links = false
+force_codeblock_ltr = false
+
+show_author = true
+show_date = true
+post_listing_date = "both"
+post_listing_index_reversed = false

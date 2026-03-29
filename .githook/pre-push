@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo "🧪 Running prepush command"
+task prepush
+status=$?
+
+# check if command successful
+if [ $status -ne 0 ]; then
+    echo "❌ Prepush command failed"
+    echo "Local changes affect the push process. If you have any local changes, stash them and run the push command again."
+    exit $status
+else
+    echo "✅ Task done"
+fi
+
+echo "Pushing"

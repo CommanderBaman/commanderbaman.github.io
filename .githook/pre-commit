@@ -1,0 +1,23 @@
+#!/bin/sh
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM || true)
+
+echo "✏️ Running precommit command"
+task precommit
+status=$?
+
+# check if command successful
+if [ $status -ne 0 ]; then
+    echo "❌ Couldn't run succesfully"
+    exit $status
+else
+    echo "✅ Task done"
+fi
+
+# add staged files
+printf '%s\n' "$STAGED_FILES" | while IFS= read -r file; do
+    [ -n "$file" ] || continue
+    if [ -f "$file" ] && ! git diff --quiet "$file"; then
+        git add "$file"
+    fi
+done

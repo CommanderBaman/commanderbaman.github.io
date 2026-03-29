@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+    GITHOOK_DIR: .githook
+
+tasks:
+    build:check:
+        desc: Check if the project builds or not
+        preconditions:
+            - sh: zola --version
+              msg: zola must be present to build project
+        cmds:
+            - zola check
+
+    build:
+        desc: Build the website
+        preconditions:
+            - sh: zola --version
+              msg: zola must be present to build project
+        cmds:
+            - zola build
+
+    clean:
+        desc: Remove generated files
+        cmds:
+            - rm -rf public
+
+    format:check:
+        desc: Check if project is formatted properly
+        preconditions:
+            - sh: mdslw --version
+              msg: mdslw should be installed for formatting markdown files
+            - sh: mdsf --version
+              msg: mdsf should be installed for formatting markdown files
+        cmds:
+            - mdslw -m check .
+            - mdsf verify --log-level error .
+
+    format:
+        desc: Format the project
+        aliases:
+            - fmt
+        preconditions:
+            - sh: mdslw --version
+              msg: mdslw should be installed for formatting markdown files
+            - sh: mdsf --version
+              msg: mdsf should be installed for formatting markdown files
+        cmds:
+            - mdslw .
+            - mdsf format --log-level error .
+
+    init:githook:
+        desc: Initialize the githooks present
+        silent: true
+        internal: true
+        preconditions:
+            - sh: git --version
+              msg: git must be present to run githooks
+        cmds:
+            - chmod +x {{.GITHOOK_DIR}}/*
+            - git config core.hooksPath {{.GITHOOK_DIR}}
+            - echo "Git hooks configured to use '{{.GITHOOK_DIR}}' folder"
+
+    init:
+        desc: Initialize the project
+        cmds:
+            - task: init:githook
+
+    print-vars:
+        desc: Print out all variables defined in taskfile
+        silent: true
+        cmds:
+            - echo 'GITHOOK_DIR={{.GITHOOK_DIR}}'
+
+    spellcheck:
+        desc: Check for spelling errors in the reposiory
+        aliases:
+            - typo
+        preconditions:
+            - sh: typos --version
+              msg: typos must be present for spell check
+        cmds:
+            - typos
+
+    precommit:
+        desc: Tasks to run before committing
+        cmds:
+            - task: spellcheck
+            - task: format
+
+    prepush:
+        desc: Tasks to run before pushing
+        cmds:
+            - task: build:check
+
+    serve:
+        desc: Run the server
+        aliases:
+            - run
+        preconditions:
+            - sh: zola --version
+              msg: zola must be present to run project
+        cmds:
+            - zola serve

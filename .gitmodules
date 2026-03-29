@@ -1,0 +1,3 @@
+[submodule "themes/tabi"]
+	path = themes/tabi
+	url = git@github.com-personal:welpo/tabi.git

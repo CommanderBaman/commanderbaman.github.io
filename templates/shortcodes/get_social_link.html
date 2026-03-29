@@ -1,0 +1,2 @@
+{% set item = config.extra.socials | filter(attribute="name", value=name) | first %}
+<a href="{{ item.url }}">{{ item.name }}</a>
