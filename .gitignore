@@ -3,6 +3,3 @@ public
 
 # mac system
 .DS_Store
-
-# themes once inherited not required to track
-themes
