@@ -1,1 +1,5 @@
+# build files
 public
+
+# mac system
+.DS_Store
