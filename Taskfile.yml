@@ -84,6 +84,8 @@ tasks:
 
     serve:
         desc: Run the server
+        aliases:
+            - run
         preconditions:
             - sh: zola --version
               msg: zola must be present to run project
