@@ -1,0 +1,10 @@
+[default]
+extend-ignore-re = [
+  # Ignore the line after `# spellchecker:disable-next-line`:
+  "(#|//)\\s*spellchecker:disable-next-line\\n.*",
+  # Ignore blocks between `# spellchecker:off` and `# spellchecker:on`
+  "(?s)(#|//)\\s*spellchecker:off.*?\\n\\s*(#|//)\\s*spellchecker:on",
+]
+
+[default.extend-words]
+IIT = "IIT"
